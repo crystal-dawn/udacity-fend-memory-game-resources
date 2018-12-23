@@ -213,27 +213,22 @@ const requirementCard = () => {
 const typeCard = (requirement) => {
  types.map(type => {
     document.querySelector('h2')
-      .insertAdjacentHTML('beforeend',
+      .insertAdjacentHTML('afterend',
         `<section class="type">
           <h3 class="type-header">${type}</h3>
-        </section>`);
-    // resourceCard(requirement);
+        `);
+    resourceCard(requirement, type);
   })
 }
 
 /**
  * @description create resource card buttons for each resource
- * @todo sections for type
  */
-const resourceCard = (requirement) => {
+const resourceCard = (requirement, type) => {
   for (i = 0; i < resources.length; i++) {
-    if (resources[i].requirement === requirement) {
-
-      // console.log(resources[i].requirement);
-      document.querySelector('section')
-        .insertAdjacentHTML('beforeend', `
-        <section class="type">
-         <h3 class="type-header">${resources[i].type}</h3>
+    if (type === resources[i].type && requirement === resources[i].requirement) {
+      document.querySelector('h3')
+        .insertAdjacentHTML('afterend', `
           <button class="resource">
             <a class="link" href=${resources[i].url}>
               <h4>${resources[i].page}</h4>
