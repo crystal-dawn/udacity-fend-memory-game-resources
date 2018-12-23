@@ -153,8 +153,8 @@ const resources = [{
 ]
 
 /**
-* @todo remove unused requirements dynamically
-*/
+ * @todo remove unused requirements dynamically
+ */
 const requirementsList = [
   "Game Behavior",
   // "Memory Game Logic",
@@ -187,10 +187,8 @@ const loadPage = () => {
  * @description add main element for start of requirement cards
  */
 const mainElement = () => {
-  const main = document.createElement('main');
-  const requirements = document.body.appendChild(main)
-    // add class name to element
-    .classList.add('requirements');
+  document.querySelector('nav')
+  .insertAdjacentHTML('afterend', `<main class="requirements"></main>`);
 
   requirementCard();
 }
@@ -201,16 +199,19 @@ const mainElement = () => {
  */
 const requirementCard = () => {
   for (i = 0; i < requirementsList.length; i++) {
-    const requirements = requirementsList.map(requirement => {
+    const requirements = requirementsList.map((requirement, index) => {
       document.querySelector('main')
         .insertAdjacentHTML('afterbegin',
           `<section class="requirement">
-          <h2 class="requirement-header">${requirement}</h2>
+          <h2 class="requirement-header" id="requirement${index}">${requirement}</h2>
         </section>`);
+
+            document.querySelectorAll('span')[1].insertAdjacentHTML('afterbegin',
+              `<a class="dropdown-content-link" href="#requirement${index}">${requirement}</a>`)
       typeCard(requirement);
     })
-  }
 
+  }
 }
 
 /**
