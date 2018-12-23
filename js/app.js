@@ -191,19 +191,34 @@ const requirementSection = () => {
     document.querySelector('main')
       .insertAdjacentHTML('afterbegin',
         `<section class="requirement">
-          ${requirement}
+          <h2 type="requirement-header">${requirement}</h2>
         </section>`);
     console.log(requirement);
     resourceCard(requirement);
   })
 }
 
+/**
+ * @description create resource card buttons for each resource
+ * @todo sections for type
+ */
 const resourceCard = (requirement) => {
   for (i = 0; i < resources.length; i++) {
     if (resources[i].requirement === requirement) {
       console.log(resources[i].requirement);
       document.querySelector('section')
-        .insertAdjacentHTML('beforeend', `<h2>${resources[i].page}</h2>`)
+        .insertAdjacentHTML('beforeend', `
+        <section class="type">
+         <h3 class="type-header">${resources[i].type}</h3>
+          <button class="resource">
+            <a class="link" href=${resources[i].url}>
+              <h4>${resources[i].page}</h4>
+              </br>
+              <span class="credit">Shared by: ${resources[i].sharer}</span>
+            </a>
+           </button>
+         </section>
+        `)
     }
   }
 }
