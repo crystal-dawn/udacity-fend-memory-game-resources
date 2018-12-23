@@ -91,8 +91,24 @@ const resourceRequirements = () => {
  */
 const resourceType = () => {
   document.querySelector('h2')
-    .insertAdjacentHTML('afterend', `<section class="type">
-      <h3 class="type-header">${resources[r].type}</h3></section>`);
+  .insertAdjacentHTML('afterend', `<section class="type">
+    <h3 class="type-header">${resources[r].type}</h3></section>`);
+
+  resourceCard();
+}
+
+/**
+ * @description add resource cards
+ */
+const resourceCard = () => {
+  document.querySelector('h3')
+  .insertAdjacentHTML('afterend',
+    `<button class="resource">${resources[r].page}
+    <a class="link" href=${resources[r].url}>${resources[r].page}
+    </br>
+    <span class="credit">Shared by: @${resources[r].sharer}</span>
+    </a>`
+  )
 }
 
 document.body.onload = loadPage();
