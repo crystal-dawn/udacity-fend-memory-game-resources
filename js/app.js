@@ -45,6 +45,7 @@ const mainElement = () => {
   const requirements = document.body.appendChild(main)
     // add class name to element
     .classList.add('requirements');
+
   sectionElement();
 }
 
@@ -54,10 +55,14 @@ const mainElement = () => {
  */
 const sectionElement = () => {
   for (i = 0; i < requirementsList.length; i++) {
-    const requirement = document.querySelector('main')
-      .insertAdjacentHTML('afterbegin', `<section class="requirement"></section>`);
+    for (r = 0; r < resources.length; r++) {
+      if (resources[r].requirement === requirementsList[i]) {
+        const requirement = document.querySelector('main')
+          .insertAdjacentHTML('afterbegin', `<section class="requirement"></section>`);
 
-    requirementHeader();
+        requirementHeader();
+      }
+    }
   }
 }
 
@@ -67,6 +72,27 @@ const sectionElement = () => {
 const requirementHeader = () => {
   document.querySelector('.requirement')
     .insertAdjacentHTML('beforeend', `<h2 class="requirement-header">${requirementsList[i]}</h2>`);
+
+  resourceRequirements();
+}
+
+/**
+ * @description check if requirement has a type section
+ * @param {array} resources
+ * @param {array} requirements
+ */
+const resourceRequirements = () => {
+  console.log(resources[r].requirement, requirementsList[i], resources[r].requirement === requirementsList[i]);
+  resourceType();
+}
+
+/**
+ * @description add type section
+ */
+const resourceType = () => {
+  document.querySelector('h2')
+    .insertAdjacentHTML('afterend', `<section class="type">
+      <h3 class="type-header">${resources[r].type}</h3></section>`)
 }
 
 document.body.onload = loadPage();
