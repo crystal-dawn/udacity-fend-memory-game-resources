@@ -1,5 +1,7 @@
 /**
  * @param {array} resources - collection of resources
+ * @todo group resources by requirement and type instead of having separate
+ *       objects
  */
 const resources = [{
     requirement: "Game Behavior",
@@ -163,6 +165,13 @@ const requirementsList = [
   "Congratulations Popup & Star Rating"
 ];
 
+const types = [
+  "Answer",
+  "Blog/Article",
+  "Documentation",
+  "Tutorial"
+];
+
 /**
  * @description create main element when page loads
  * @todo Try and do IFFE for page loads
@@ -180,21 +189,35 @@ const mainElement = () => {
     // add class name to element
     .classList.add('requirements');
 
-  requirementSection();
+  requirementCard();
 }
 
 /**
  * @description loop through array of requirements creating each section
+ * @todo remove empty cards
  */
-const requirementSection = () => {
+const requirementCard = () => {
   const requirements = requirementsList.map(requirement => {
     document.querySelector('main')
       .insertAdjacentHTML('afterbegin',
         `<section class="requirement">
-          <h2 type="requirement-header">${requirement}</h2>
+          <h2 class="requirement-header">${requirement}</h2>
         </section>`);
-    console.log(requirement);
-    resourceCard(requirement);
+        typeCard(requirement);
+  })
+}
+
+/**
+* @description create type cards for each type of resources
+*/
+const typeCard = (requirement) => {
+ types.map(type => {
+    document.querySelector('h2')
+      .insertAdjacentHTML('beforeend',
+        `<section class="type">
+          <h3 class="type-header">${type}</h3>
+        </section>`);
+    // resourceCard(requirement);
   })
 }
 
@@ -205,7 +228,8 @@ const requirementSection = () => {
 const resourceCard = (requirement) => {
   for (i = 0; i < resources.length; i++) {
     if (resources[i].requirement === requirement) {
-      console.log(resources[i].requirement);
+
+      // console.log(resources[i].requirement);
       document.querySelector('section')
         .insertAdjacentHTML('beforeend', `
         <section class="type">
