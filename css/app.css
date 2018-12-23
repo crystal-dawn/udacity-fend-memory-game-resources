@@ -21,3 +21,14 @@
   border-radius: 5px;
   background-color: white;
 }
+
+/* Type card */
+.type-header {
+  font-size: 1.4em;
+  margin: 0;
+  font-weight: 800;
+  color: var(--secondary-color-dark);
+  background-color: var(--primary-color-light);
+  opacity: .9;
+  mix-blend-mode: hard-light;
+}

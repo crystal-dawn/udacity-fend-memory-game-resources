@@ -92,7 +92,7 @@ const resourceRequirements = () => {
 const resourceType = () => {
   document.querySelector('h2')
     .insertAdjacentHTML('afterend', `<section class="type">
-      <h3 class="type-header">${resources[r].type}</h3></section>`)
+      <h3 class="type-header">${resources[r].type}</h3></section>`);
 }
 
 document.body.onload = loadPage();
