@@ -239,8 +239,7 @@ const resourceCard = (requirement, type) => {
         .insertAdjacentHTML('afterend', `
           <button class="resource">
             <a class="link" href=${resources[i].url}>
-              <h4>${resources[i].page}</h4>
-              </br>
+              <h4 class="link-header">${resources[i].page}</h4>
               <span class="credit">Shared by: ${resources[i].sharer}</span>
             </a>
            </button>

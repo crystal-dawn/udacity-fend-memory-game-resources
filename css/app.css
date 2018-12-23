@@ -12,7 +12,92 @@ body {
   overflow-x: hidden;
   max-width: 100%;
   background-color: var(--secondary-color-light);
-  mix-blend-mode: soft-light;
+  mix-blend-mode:soft-light;
+}
+
+.container {
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+/*
+* Navigation Menu
+*/
+
+.nav {
+  overflow: hidden;
+  background-color: var(--primary-color-light);
+  font-family: Arial;
+}
+
+.nav a {
+  float: left;
+  font-size: 16px;
+  color: var(--secondary-color-dark);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropdown-button {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: var(--secondary-color-dark);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0;  /* Important for vertical align on mobile phones */
+}
+
+.nav a:hover, .dropdown:hover .dropdown-button {
+  background-color: var(--secondary-color-dark);
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  color: black;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a{
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--primary-color-light);
+  color: var(--secondary-color-dark);
+  mix-blend-mode: hard-light;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.page-header {
+  font-size: 3em;
+  width: 100vw;
+  margin: 0;
+  text-align: center;
+  color: white;
+  background-color: var(--primary-color-dark);
 }
 
 /** Requirement Container **/
@@ -39,7 +124,6 @@ body {
   background-color: white;
 }
 
-/* Type card */
 .type-header {
   font-size: 1.4em;
   margin: 0;
@@ -50,7 +134,6 @@ body {
   mix-blend-mode: hard-light;
 }
 
-/* Resource button */
 .resource {
   font-family: Arial;
   margin: 1%;
@@ -67,4 +150,8 @@ body {
 .link {
   text-decoration: none;
   color: var(--secondary-color-dark);
+}
+
+.link-header {
+  margin: 0;
 }
