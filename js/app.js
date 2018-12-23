@@ -152,24 +152,27 @@ const resources = [{
   }
 ]
 
+/**
+* @todo remove unused requirements dynamically
+*/
 const requirementsList = [
   "Game Behavior",
-  "Memory Game Logic",
+  // "Memory Game Logic",
   "Congratulations Popup",
-  "Restart Button",
-  "Star Rating",
+  // "Restart Button",
+  // "Star Rating",
   "Timer",
-  "Move Counter",
-  "Interface Design",
-  "Documentation",
+  // "Move Counter",
+  // "Interface Design",
+  // "Documentation",
   "Congratulations Popup & Star Rating"
 ];
 
 const types = [
-  "Answer",
-  "Blog/Article",
+  "Tutorial",
   "Documentation",
-  "Tutorial"
+  "Blog/Article",
+  "Answer"
 ];
 
 /**
@@ -197,25 +200,29 @@ const mainElement = () => {
  * @todo remove empty cards
  */
 const requirementCard = () => {
-  const requirements = requirementsList.map(requirement => {
-    document.querySelector('main')
-      .insertAdjacentHTML('afterbegin',
-        `<section class="requirement">
+  for (i = 0; i < requirementsList.length; i++) {
+    const requirements = requirementsList.map(requirement => {
+      document.querySelector('main')
+        .insertAdjacentHTML('afterbegin',
+          `<section class="requirement">
           <h2 class="requirement-header">${requirement}</h2>
         </section>`);
-        typeCard(requirement);
-  })
+      typeCard(requirement);
+    })
+  }
+
 }
 
 /**
-* @description create type cards for each type of resources
-*/
+ * @description create type cards for each type of resources
+ */
 const typeCard = (requirement) => {
- types.map(type => {
+  types.map(type => {
     document.querySelector('h2')
       .insertAdjacentHTML('afterend',
         `<section class="type">
           <h3 class="type-header">${type}</h3>
+          <br/>
         `);
     resourceCard(requirement, type);
   })
