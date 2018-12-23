@@ -144,6 +144,7 @@ const resources = [{
 const requirementsList = [
   "Game Behavior",
   // "Memory Game Logic",
+  "Congratulations Popup & Star Rating",
   "Congratulations Popup",
   // "Restart Button",
   // "Star Rating",
@@ -151,7 +152,6 @@ const requirementsList = [
   // "Move Counter",
   // "Interface Design",
   // "Documentation",
-  "Congratulations Popup & Star Rating"
 ];
 
 const types = [
