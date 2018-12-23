@@ -95,13 +95,6 @@ const resources = [{
     sharer: ""
   },
   {
-    requirement: "Congratulations Popup",
-    type: "Tutorial",
-    page: "How TO - CSS/JS Modal",
-    url: "https://www.w3schools.com/howto/howto_css_modals.asp",
-    sharer: "Ivan.ProjectCoach [FEND]"
-  },
-  {
     requirement: "Interface Design",
     type: "Library",
     page: "FONT AWESOMEv.4.7.0",
@@ -142,13 +135,6 @@ const resources = [{
     page: "Handling Events",
     url: "https://eloquentjavascript.net/15_event.html",
     sharer: "Mitali {FEND}"
-  },
-  {
-    requirement: "Timer",
-    type: "Tutorial",
-    page: "JavaScript Timing Events",
-    url: "https://www.w3schools.com/js/js_timing.asp",
-    sharer: "Sara Krum"
   }
 ]
 
