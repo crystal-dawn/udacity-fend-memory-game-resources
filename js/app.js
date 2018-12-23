@@ -180,24 +180,19 @@ const mainElement = () => {
     // add class name to element
     .classList.add('requirements');
 
-  resourceCard();
+  requirementSection();
 }
 
 /**
- * @description loop through array of resources creating buttons for each
+ * @description loop through array of requirements creating each section
  */
-const resourceCard = () => {
-  for (r = 0; r < resources.length; r++) {
+const requirementSection = () => {
+  const requirements = requirementsList.map(requirement => {
     document.querySelector('main')
-      .insertAdjacentHTML('afterbegin',
-      `<button class="resource">
-        <a class="link" href=${resources[r].url}>
-          ${resources[r].page}</br>
-          <span class="credit">Shared by: @${resources[r].sharer}</span>
-        </a>
-      </button>`);
-    // requirementHeader();
+    .insertAdjacentHTML('afterend', `<section class="requirement">${requirement}</section>`)
+    })
   }
-}
+
+
 
 document.body.onload = loadPage();
