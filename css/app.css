@@ -49,3 +49,22 @@ body {
   opacity: .9;
   mix-blend-mode: hard-light;
 }
+
+/* Resource button */
+.resource {
+  font-family: Arial;
+  margin: 1%;
+  border: 2px groove var(--secondary-color-dark);
+  border-radius: 5px;
+  background-color: var(--primary-color-light);
+  box-shadow: 2px 1px 6px var(--secondary-color-light);
+}
+
+.resource:hover {
+  background-color: var(--primary-color);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--secondary-color-dark);
+}
