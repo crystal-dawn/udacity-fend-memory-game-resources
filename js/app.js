@@ -17,27 +17,56 @@ const resources = [{
   }
 ]
 
+const requirementsList = [
+  "Game Behavior",
+  "Memory Game Logic",
+  "Congratulations Popup",
+  "Restart Button",
+  "Star Rating",
+  "Timer",
+  "Move Counter",
+  "Interface Design",
+  "Documentation"
+];
+
 /**
-* @description loop through array of requirements to create each section
-*/
-for (i = 0; i < resources.length; i++) {
-  /**
-   * @description add main element for start of requirement cards
-   */
+ * @description create main element when page loads
+ * @todo Try and do IFFE for page loads
+ */
+const loadPage = () => {
+  mainElement();
+}
+
+/**
+ * @description add main element for start of requirement cards
+ */
+const mainElement = () => {
   const main = document.createElement('main');
   const requirements = document.body.appendChild(main)
     // add class name to element
     .classList.add('requirements');
-
-  /**
-   * @description nest section element in main
-   */
-  const requirement = document.querySelector('main')
-    .insertAdjacentHTML('afterend', `<section class="requirement"></section>`);
-
-  /**
-   * @description add requirement text in h2 tag
-   */
-  const requirementHeader = document.querySelector('.requirement')
-    .insertAdjacentHTML('beforeend', `<h2 class="requirement-header">${resources[i].requirement}</h2>`);
+  sectionElement();
 }
+
+/**
+ * @description loop through array of requirements to create each section
+ * @todo if there are no resources for a requirement, don't create section
+ */
+const sectionElement = () => {
+  for (i = 0; i < requirementsList.length; i++) {
+    const requirement = document.querySelector('main')
+      .insertAdjacentHTML('afterbegin', `<section class="requirement"></section>`);
+
+    requirementHeader();
+  }
+}
+
+/**
+ * @description add requirement text in h2 tag
+ */
+const requirementHeader = () => {
+  document.querySelector('.requirement')
+    .insertAdjacentHTML('beforeend', `<h2 class="requirement-header">${requirementsList[i]}</h2>`);
+}
+
+document.body.onload = loadPage();
