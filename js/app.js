@@ -103,7 +103,7 @@ const resourceType = () => {
 const resourceCard = () => {
   document.querySelector('h3')
   .insertAdjacentHTML('afterend',
-    `<button class="resource">${resources[r].page}
+    `<button class="resource">
     <a class="link" href=${resources[r].url}>${resources[r].page}
     </br>
     <span class="credit">Shared by: @${resources[r].sharer}</span>
