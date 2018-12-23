@@ -189,10 +189,23 @@ const mainElement = () => {
 const requirementSection = () => {
   const requirements = requirementsList.map(requirement => {
     document.querySelector('main')
-    .insertAdjacentHTML('afterend', `<section class="requirement">${requirement}</section>`)
-    })
+      .insertAdjacentHTML('afterbegin',
+        `<section class="requirement">
+          ${requirement}
+        </section>`);
+    console.log(requirement);
+    resourceCard(requirement);
+  })
+}
+
+const resourceCard = (requirement) => {
+  for (i = 0; i < resources.length; i++) {
+    if (resources[i].requirement === requirement) {
+      console.log(resources[i].requirement);
+      document.querySelector('section')
+        .insertAdjacentHTML('beforeend', `<h2>${resources[i].page}</h2>`)
+    }
   }
-
-
+}
 
 document.body.onload = loadPage();
