@@ -24,16 +24,17 @@ body {
 .container {
   max-width: 100vw;
   min-height: 100vh;
+  nax-height: 100vh;
 }
 
 .page-header {
-  font-size: 2em;
+  font-size: 3em;
   /* Sticky header */
   position: fixed;
   z-index: 2;
   width: 100vw;
   /* Declare height to support navigation positioning for sticky top-nav */
-  height: 5%;
+  height: 5vh;
   margin: 0;
   text-align: center;
   color: white;
@@ -45,7 +46,8 @@ body {
 .top-nav {
   font-size: .85rem;
   z-index: 1;
-  top: 5%;
+  top: 5vh;
+  height: 5.7vh;
 }
 
 /************************
@@ -56,7 +58,6 @@ body {
 }
 
 .dropdown {
-  font-size: 1em;
   overflow: hidden;
 }
 
@@ -73,7 +74,7 @@ body {
 .dropdown-content {
   position: absolute;
   z-index: 1;
-  top: 10px;
+  top: 3.5vh;
   display: none;
   color: var(--secondary-color-dark);
   background-color: white;
@@ -131,7 +132,7 @@ body {
 /***************** Bottom Navigation *****************/
 .bottom-nav {
   bottom: 0;
-  height: 6vh;
+  height: 5vh;
   padding: 1% 0;
 }
 
@@ -178,7 +179,7 @@ body {
   margin: 1%;
   text-align: center;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 2%;
   background-color: white;
 }
 
@@ -205,7 +206,7 @@ body {
   margin: 1%;
   padding: 1%;
   border: 2px groove var(--secondary-color-light);
-  border-radius: 5px;
+  border-radius: 2%;
   background-color: white;
   box-shadow: 2px 1px 6px var(--secondary-color-light);
 }
@@ -253,6 +254,10 @@ body {
     top: -80px;
   }
 
+  /* .dropdown-content {
+    top: 18px;
+  } */
+
   .visibility {
     visibility: visible;
   }
@@ -260,6 +265,8 @@ body {
   .bottom-nav {
     display: flex;
     justify-content: space-around;
+    max-height: 6vh;
+    padding-top: 0;
   }
 
   .bottom-content {
@@ -292,14 +299,18 @@ body {
   #ctn6 a {
     top: -90px;
   }
-
+/*
   .dropdown-content {
     top: 32px;
-  }
+  } */
 
   /* Increase size of home icon without increasing link font size */
   .tablet-font {
     font-size: 2em;
+  }
+
+  .criteria {
+    max-height: auto;
   }
 
   .criteria:last-child {
