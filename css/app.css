@@ -34,11 +34,11 @@ body {
   z-index: 2;
   width: 100vw;
   /* Declare height to support navigation positioning for sticky top-nav */
-  height: 5vh;
+  height: 3vh;
   margin: 0;
   text-align: center;
   color: white;
-  background-color: var(--primary-color-dark);
+  background-image: linear-gradient(to bottom, #2196f3, #2599f4, #2a9cf5, #2e9ff5, #33a2f6);
 }
 
 /***** Sticky Top Navigation - Project Resources ******/
@@ -46,8 +46,9 @@ body {
 .top-nav {
   font-size: .85rem;
   z-index: 1;
-  top: 5vh;
-  height: 5.7vh;
+  top: 2vh;
+  height: 5.5vh;
+  background-image: linear-gradient(to bottom, #2a9cf5, #3aa7f7, #4bb1f9, #5cbcfb, #6ec6fc);
 }
 
 /************************
@@ -257,16 +258,15 @@ body {
   /* .dropdown-content {
     top: 18px;
   } */
-
   .visibility {
     visibility: visible;
   }
 
   .bottom-nav {
     display: flex;
-    justify-content: space-around;
     max-height: 6vh;
     padding-top: 0;
+    justify-content: space-around;
   }
 
   .bottom-content {
@@ -299,11 +299,11 @@ body {
   #ctn6 a {
     top: -90px;
   }
-/*
+
+  /*
   .dropdown-content {
     top: 32px;
   } */
-
   /* Increase size of home icon without increasing link font size */
   .tablet-font {
     font-size: 2em;
