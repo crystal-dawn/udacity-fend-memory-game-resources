@@ -22,21 +22,21 @@ const mainElement = () => {
  */
 const criteriaCard = () => {
   for (i = 0; i < criteriasList.length; i++) {
-    const criterias = criteriasList.map((criteria, index) => {
+    const criterias = criteriasList.map((criteria, criteriaIndex) => {
       document.querySelector('main')
         .insertAdjacentHTML('afterbegin',
           `<section class="criteria">
-             <div id="ctn${index}" style="position:relative;">
-               <a id="criteria${index}">&nbsp;</a>
+             <div id="ctn${criteriaIndex}" style="position:relative;">
+               <a id="criteria${criteriaIndex}">&nbsp;</a>
                <h2 class="criteria-header">${criteria}</h2>
              </div>
            </section>`);
 
       document.querySelector('ul').insertAdjacentHTML('afterbegin',
         `<li class="criteria-list">
-           <a class="dropdown-link" href="#criteria${index}">${criteria}</a>
+           <a class="dropdown-link" href="#criteria${criteriaIndex}">${criteria}</a>
         </li>`)
-      typeCard(criteria);
+      typeCard(criteria, criteriaIndex);
     })
   }
 }
@@ -44,21 +44,24 @@ const criteriaCard = () => {
 /**
  * @description create type cards for each type of resources
  */
-const typeCard = (criteria) => {
-  types.map(type => {
+const typeCard = (criteria, criteriaIndex) => {
+  types.map((type, typeIndex) => {
     document.querySelector('section > div ')
-      .insertAdjacentHTML('afterend',
-        `<section class="type">
-          <h3 class="type-header">${type}</h3>
-        `);
-    resourceCard(criteria, type);
-  })
+    .insertAdjacentHTML('afterend',
+      // criteriaIndex followed by typeIndex create a unique id for each type
+      // card which is necessary to remove empty cards
+      `<section class="type" id="${criteriaIndex}${typeIndex}">
+        <h3 class="type-header">${type}</h3>
+        <br/>
+      `);
+  resourceCard(criteria, type, criteriaIndex, typeIndex);
+})
 }
 
 /**
  * @description create resource card buttons for each resource
  */
-const resourceCard = (criteria, type) => {
+const resourceCard = (criteria, type, criteriaIndex, typeIndex) => {
   for (i = 0; i < resources.length; i++) {
     if (type === resources[i].type && criteria === resources[i].criteria) {
       document.querySelector('h3')
@@ -72,6 +75,18 @@ const resourceCard = (criteria, type) => {
          </section>
         `)
     }
+  }
+  removeEmpty(criteriaIndex, typeIndex);
+}
+
+/**
+ * @description Remove type cards that don't have children resource cards
+ */
+const removeEmpty = (criteriaIndex, typeIndex) => {
+  let card = document.getElementById(`${criteriaIndex}${typeIndex}`);
+  console.log(card.children.length);
+  if (card.children.length === 2) {
+    card.style.display = "none";
   }
 }
 

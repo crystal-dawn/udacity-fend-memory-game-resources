@@ -24,7 +24,6 @@ body {
 .container {
   max-width: 100vw;
   min-height: 100vh;
-  nax-height: 100vh;
 }
 
 .page-header {
@@ -254,10 +253,6 @@ body {
     top: -80px;
   }
 
-  .dropdown-content {
-    top: 18px;
-  }
-
   .visibility {
     visibility: visible;
   }
@@ -305,10 +300,6 @@ body {
   /* Increase size of home icon without increasing link font size */
   .tablet-font {
     font-size: 2em;
-  }
-
-  .criteria {
-    max-height: auto;
   }
 
   .criteria:last-child {
