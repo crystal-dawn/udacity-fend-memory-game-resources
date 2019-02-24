@@ -177,14 +177,15 @@ body {
   background-color: var(--secondary-color-dark);
   mix-blend-mode: hard-light;
 
-  border-radius: 2%;
+  border-radius: 5px 5px 0 0;
 }
 
 .criteria {
+  box-shadow: 4px 4px 5px 1px rgba(38,50,56,0.39);
   margin: 1%;
   text-align: center;
   border: 1px solid black;
-  border-radius: 2%;
+  border-radius: 5px;
   background-color: white;
 }
 
@@ -211,7 +212,7 @@ body {
   margin: 1%;
   padding: 1%;
   border: 2px groove var(--secondary-color-light);
-  border-radius: 2%;
+  border-radius: 2px;
   background-color: white;
   box-shadow: 2px 1px 6px var(--secondary-color-light);
 }
