@@ -173,11 +173,11 @@ body {
 .criteria-header {
   font-size: 1.7em;
   margin: 0;
-  padding: 1%;
+  padding: .85vh;
   color: var(--secondary-color-light);
   background-color: var(--primary-color-dark);
   mix-blend-mode: multiply;
-
+  white-space: pre;
   border-radius: 5px 5px 0 0;
 }
 
@@ -188,6 +188,7 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
+  align-self: center;
 }
 
 /* Keep last card from being beneath the bottom nav */
@@ -211,9 +212,9 @@ body {
   font-family: Arial;
   display: inline-flex;
   margin: 1%;
-  padding: 1%;
+  padding: 2% 3%;
   border: 2px groove var(--secondary-color-light);
-  border-radius: 2px;
+  border-radius: 5px;
   background-color: white;
   box-shadow: 2px 1px 6px var(--secondary-color-light);
 }
