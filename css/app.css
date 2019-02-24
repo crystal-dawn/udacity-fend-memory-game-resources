@@ -114,14 +114,15 @@ body {
   padding: 3%;
   text-align: center;
   text-decoration: none;
-  color: var(--secondary-color);
 }
 
 .top-nav .nav-link:hover,
-.dropdown:hover .dropdown-button,
+.dropdown-button:hover,
 .bottom-nav .nav-link:hover {
   color: white;
   background-color: var(--secondary-color);
+  height: 100%;
+  mix-blend-mode: saturation;
 }
 
 /****** Top and bottom navigation general styles *****/
@@ -173,9 +174,9 @@ body {
   font-size: 1.7em;
   margin: 0;
   padding: 1%;
-  color: var(--primary-color-light);
-  background-color: var(--secondary-color-dark);
-  mix-blend-mode: hard-light;
+  color: var(--secondary-color-light);
+  background-color: var(--primary-color-dark);
+  mix-blend-mode: multiply;
 
   border-radius: 5px 5px 0 0;
 }
@@ -200,8 +201,8 @@ body {
   font-weight: 800;
   margin: 0;
   opacity: .9;
-  color: var(--secondary-color-dark);
-  background-color: var(--primary-color-light);
+  color: var(--secondary-color-light);
+  background-color: var(--secondary-color);
   mix-blend-mode: hard-light;
 }
 
