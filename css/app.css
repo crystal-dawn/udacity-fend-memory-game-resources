@@ -1,3 +1,10 @@
+/*******************************************************************************
+                              Small Mobile Layout
+*******************************************************************************/
+/*****************************************************
+                     Main layout
+******************************************************/
+/*************** Theme color variables ***************/
 :root {
   --primary-color: #2196f3;
   --primary-color-light: #6ec6ff;
@@ -7,82 +14,83 @@
   --secondary-color-dark: #000a12;
 }
 
+/****** Responsive layout and basic page style *******/
 body {
   font-family: monospace;
-  overflow-x: hidden;
   max-width: 100%;
   background-color: var(--secondary-color-light);
- /* mix-blend-mode:soft-light; */
 }
 
 .container {
   max-width: 100vw;
   min-height: 100vh;
+  nax-height: 100vh;
 }
 
-/*
-* Navigation Menu
-*/
-
-.nav {
-  overflow: hidden;
-  background-color: var(--primary-color-light);
-  font-family: Arial;
-}
-
-.nav a {
-  float: left;
-  font-size: 16px;
-  color: var(--secondary-color-dark);
+.page-header {
+  font-size: 2em;
+  /* Sticky header */
+  position: fixed;
+  z-index: 2;
+  width: 100vw;
+  /* Declare height to support navigation positioning for sticky top-nav */
+  height: 5%;
+  margin: 0;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  color: white;
+  background-color: var(--primary-color-dark);
 }
 
-/* Dropdown Menu */
+/***** Sticky Top Navigation - Project Resources ******/
+/* Set top navigation to stick below page header */
+.top-nav {
+  font-size: .85rem;
+  z-index: 1;
+  top: 5%;
+}
+
+/************************
+ Criteria Dropdown Menu
+************************/
+.criteria-list {
+  list-style: none;
+}
+
 .dropdown {
-  float: left;
+  font-size: 1em;
   overflow: hidden;
 }
 
-.dropdown .dropdown-button {
-  font-size: 16px;
+.dropdown-button {
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  padding: 1% 3%;
+  color: var(--secondary-color-dark);
   border: none;
   outline: none;
-  color: var(--secondary-color-dark);
-  padding: 14px 16px;
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0;  /* Important for vertical align on mobile phones */
-}
-
-.nav a:hover, .dropdown:hover .dropdown-button {
-  background-color: var(--secondary-color-dark);
-  color: white;
 }
 
 .dropdown-content {
-  display: none;
   position: absolute;
-  color: black;
-  background-color: white;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-}
-
-.dropdown-content a{
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: var(--primary-color-light);
+  top: 10px;
+  display: none;
   color: var(--secondary-color-dark);
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+}
+
+.dropdown-content .dropdown-link {
+  display: block;
+  float: none;
+  text-align: left;
+  text-decoration: none;
+}
+
+.dropdown-link:hover {
+  color: var(--secondary-color-dark);
+  background-color: var(--primary-color-light);
   mix-blend-mode: hard-light;
 }
 
@@ -91,32 +99,83 @@ body {
   display: block;
 }
 
-.page-header {
-  font-size: 3em;
-  width: 100vw;
-  margin: 0;
+/******************************************************
+              Shared Navigation Styles
+******************************************************/
+/********** Consistent navigation link style *********/
+.top-nav .nav-link,
+.dropdown-link {
+  font-size: .95em;
+  float: left;
+  /* Keep link close to 48px on mobile view so it's easily tappable */
+  padding: 3%;
   text-align: center;
-  color: white;
-  background-color: var(--primary-color-dark);
+  text-decoration: none;
+  color: var(--secondary-color);
 }
 
-/** Requirement Container **/
-.requirements {
+.top-nav .nav-link:hover,
+.dropdown:hover .dropdown-button,
+.bottom-nav .nav-link:hover {
+  color: white;
+  background-color: var(--secondary-color);
+}
+
+/****** Top and bottom navigation general styles *****/
+.top-nav,
+.bottom-nav {
+  font-family: Arial;
+  position: sticky;
+  background-color: var(--primary-color-light);
+}
+
+/***************** Bottom Navigation *****************/
+.bottom-nav {
+  bottom: 0;
+  height: 6vh;
+  padding: 1% 0;
+}
+
+.bottom-content {
+  font-size: 1.95em;
+  position: absolute;
+  bottom: 0;
+  padding: 1% 5% 0 5%;
+  color: black;
+}
+
+.right {
+  right: 0;
+}
+
+/* Hide extra external resources in mobile view due to size constraints */
+.visibility {
+  visibility: hidden;
+}
+
+/******************************************************
+                Criteria resource cards
+******************************************************/
+/**************** Criteria Container *****************/
+.criterias {
+  position: relative;
+  /* First criteria card shows up below top navigation section */
+  top: 45px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.requirement-header {
+.criteria-header {
   font-size: 1.7em;
   margin: 0;
   padding: 0;
   color: var(--primary-color-light);
-  mix-blend-mode: hard-light;
   background-color: var(--secondary-color-dark);
+  mix-blend-mode: hard-light;
 }
 
-.requirement {
+.criteria {
   margin: 1%;
   text-align: center;
   border: 1px solid black;
@@ -124,30 +183,139 @@ body {
   background-color: white;
 }
 
+/* Keep last card from being beneath the bottom nav */
+.criteria:last-child {
+  margin-bottom: 5%;
+}
+
+/****************** Type subsection ******************/
 .type-header {
   font-size: 1.4em;
-  margin: 0;
   font-weight: 800;
+  margin: 0;
+  opacity: .9;
   color: var(--secondary-color-dark);
   background-color: var(--primary-color-light);
-  opacity: .9;
   mix-blend-mode: hard-light;
 }
 
+/******************* Resource link *******************/
 .resource {
   font-family: Arial;
+  display: inline-flex;
   margin: 1%;
-  border: 2px groove var(--secondary-color-dark);
+  padding: 1%;
+  border: 2px groove var(--secondary-color-light);
   border-radius: 5px;
-  background-color: var(--primary-color-light);
+  background-color: white;
   box-shadow: 2px 1px 6px var(--secondary-color-light);
 }
 
 .resource:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-light);
 }
 
-.link {
+.resource-link {
   text-decoration: none;
   color: var(--secondary-color-dark);
+}
+
+/* Keep Shared By on a single line */
+.credit {
+  font-size: .85em;
+  white-space: nowrap;
+}
+
+/******************************************************
+                Anchor link positioning
+******************************************************/
+/* Keep clicked link header below the top navigation section */
+#ctn0 a,
+#ctn1 a,
+#ctn2 a,
+#ctn3 a {
+  position: absolute;
+  top: -75px;
+}
+
+/*******************************************************************************
+                            Tablet Layout
+*******************************************************************************/
+@media only screen and (min-width: 426px) {
+
+  /* Keep clicked link header below the top navigation section */
+  /* TODO: Dynamically create this so that it works with the length of the
+  criteria */
+  #ctn0 a,
+  #ctn1 a,
+  #ctn2 a,
+  #ctn3 a {
+    position: absolute;
+    top: -80px;
+  }
+
+  .dropdown-content {
+    top: 18px;
+  }
+
+  .visibility {
+    visibility: visible;
+  }
+
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .bottom-content {
+    font-size: 1em;
+    position: relative;
+    text-decoration: none;
+  }
+
+  /* Increase size of home icon without increasing link font size */
+  .tablet-font {
+    font-size: 2em;
+  }
+
+  .criteria:last-child {
+    margin-bottom: 25%;
+  }
+}
+
+/*******************************************************************************
+                            Laptop Layout
+*******************************************************************************/
+@media only screen and (min-width: 769px) {
+
+  /* Keep clicked link header below the top navigation section */
+  #ctn1 a,
+  #ctn2 a,
+  #ctn3 a,
+  #ctn4 a,
+  #ctn5 a,
+  #ctn6 a {
+    top: -90px;
+  }
+
+  .dropdown-content {
+    top: 32px;
+  }
+
+  /* Increase size of home icon without increasing link font size */
+  .tablet-font {
+    font-size: 2em;
+  }
+
+  .criteria {
+    max-height: auto;
+  }
+
+  .criteria:last-child {
+    margin-bottom: 5%;
+  }
+
+  .page-header {
+    font-size: 3em;
+  }
 }

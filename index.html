@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="preload" href="css/normalize.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/app.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" as="style" onload="this.rel='stylesheet'" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <title>Memory Game</title>
 </head>
 
@@ -14,19 +15,25 @@
     <header>
       <h1 class="page-header">Memory Game</h1>
     </header>
-    <nav class="nav">
+    <nav class="top-nav nav-link" aria-labelledby="criteriaButton">
       <span class="dropdown">
-        <button class="dropdown-button">Rubric Requirements</button>
-        <span class="dropdown-content"></span>
+        <button class="dropdown-button" id="criteriaButton" aria-expanded="false">Criteria</button>
+        <ul class="dropdown-content" hidden>
+          <a class="dropdown-link" href="https://review.udacity.com/#!/rubrics/591/view">Udacity Rubric</a>
+        </ul>
       </span>
-      <a class="dropdown-content-link" href="https://review.udacity.com/#!/rubrics/591/view">Udacity Rubric</a>
-      <a class="dropdown-content-link" href="https://tiny.cc/MemoryGameResources">Student/Mentor Walkthroughs</a>
-      <a class="dropdown-content-link" href="https://docs.google.com/document/d/1LyW8kIR2m5xAq5ngpB6jGN-hDO00pvI8jvW0-4f6sUI/edit?usp=sharing">Tips to Avoid Plagiarism</a>
-      <a class="dropdown-content-link" href="https://github.com/crystal-dawn/udacity-fend-memory-game-resources">Contribute</a>
-      <a class="dropdown-content-link" href="http://tiny.cc/FENDLinkLibraries">Master Resource Doc</a>
+    </nav>
+    <nav class="bottom-nav">
+      <a class="bottom-content nav-link" href="https://tiny.cc/MemoryGameResources" aria-label="Home"><i class="fas fa-home tablet-font nav-link" aria-hidden="true"></i></a>
+      <a class="bottom-content nav-link visibility" href="https://docs.google.com/document/d/1LyW8kIR2m5xAq5ngpB6jGN-hDO00pvI8jvW0-4f6sUI/edit?usp=sharing">Tips to Avoid Plagiarism</a>
+      <a class="bottom-content nav-link visibility" href="http://tiny.cc/FENDLinkLibraries">All Project Resources</a>
+      <a class="bottom-content nav-link right" href="https://github.com/crystal-dawn/udacity-fend-memory-game-resources" aria-label="Github">
+        <img src="images\GitHub-Mark-32px.png" alt="GitHub"></a>
     </nav>
   </div>
 </body>
 
+<script src="js/resources.js"></script>
 <script src="js/app.js"></script>
+
 </html>
